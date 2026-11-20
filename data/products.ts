@@ -1,3 +1,5 @@
+export type GalleryImage = { src: string; label: string }
+
 export type Product = {
   id: string
   slug: string
@@ -12,7 +14,7 @@ export type Product = {
   color: string
   sizes: string[]
   images: { front: string; back: string; details?: string; material?: string }
-  gallery: string[] // todas las fotos del producto, en orden
+  gallery: GalleryImage[] // todas las fotos del producto, en orden, con su etiqueta
   available: boolean
   featured: boolean
 }
@@ -22,85 +24,101 @@ export type Product = {
 // ---------------------------------------------------------------------------
 const assets = {
   hero: 'Portada1.webp',
-  teeMaterial: 'GraciaDetalles.webp', // foto del material (se usa en todas las camisetas)
+  teeMaterial: 'GraciaDetalles.webp', // foto de material por defecto (si un diseño no tiene la suya)
 }
+
+// Convierte 'foto.webp' en '/foto.webp' para que cargue desde cualquier página.
+// Los enlaces completos (https://...) se dejan como están.
+const img = (src: string) =>
+  src.startsWith('http') || src.startsWith('/') ? src : `/${src}`
 
 // ---------------------------------------------------------------------------
 // DISEÑOS
 // Cada diseño tiene sus propias fotos para HOMBRE y para MUJER.
 //   front  = foto principal (la que se ve en el catálogo)
 //   back   = foto de espalda
+//   material = foto de detalle/material de ese diseño (opcional)
 //   extras = fotos adicionales (agrega todas las que quieras)
+//   color (a nivel de diseño) = color de la prenda, ej. 'Arena', 'Marfil'
 //
 // Por ahora dejé las fotos que ya tenías para que la página no se rompa.
 // Solo reemplaza el nombre de cada archivo por la foto correcta de cada diseño.
 // Los archivos locales deben estar en la carpeta /public.
 // ---------------------------------------------------------------------------
-type DesignPhotos = { front: string; back: string; extras?: string[] }
+type DesignPhotos = {
+  front: string
+  back: string
+  material?: string // foto de detalle/material de ESTE diseño (si no pones, usa la general)
+  extras?: string[]
+}
 
 type Design = {
   id: string
   name: string
+  color?: string // color de este diseño (si no pones, usa 'Marfil')
   men: DesignPhotos
   women: DesignPhotos
 }
 
 const designs: Design[] = [
   {
-    id: 'Metanoia',
-    name: 'Diseño 01 — Origen',
+    id: 'metanoia',
+    name: 'Diseño 01 — Metanoia',
+    color: 'Marfil', // cambiar si el color es otro
     men: {
       front: 'metanoiafrenteblanco.webp',
       back: 'metanoiaespaldablanco.webp',
-      extras: [ 'metanoiafrentehombre.webp','metanoiaespaldahombre.webp'
-      ],
+      // material: 'metanoiadetalle.webp', // foto de material propia (opcional)
+      extras: ['metanoiafrentehombre.webp', 'metanoiaespaldahombre.webp'],
     },
     women: {
-      front: 'metanoiafrente.webp', // REEMPLAZAR por la foto frente del diseño 01 mujer
-      back: 'metanoiaespalda.webp', // REEMPLAZAR por la foto espalda del diseño 01 mujer
-      extras: ['metanoiafrentestile.webp'
-      ],
+      front: 'metanoiafrente.webp',
+      back: 'metanoiaespalda.webp',
+      extras: ['metanoiafrentestile.webp'],
     },
   },
   {
-    id: 'Yo soy',
+    id: 'sus-nombres',
     name: 'Diseño 02 — Sus nombres',
+    color: 'Marfil',
     men: {
-      front: 'nombresfrentehombre.webp', // REEMPLAZAR
-      back: 'nombresespaldahombre.webp', // REEMPLAZAR
+      front: 'nombresfrentehombre.webp',
+      back: 'nombresespaldahombre.webp',
       extras: ['nombresdetalle.webp'],
     },
     women: {
-      front: 'nombresfrente.webp', // REEMPLAZAR por la foto frente del diseño 02 mujer
-      back: 'nombresespalda.webp', // REEMPLAZAR por la foto espalda del diseño 02 mujer
+      front: 'nombresfrente.webp',
+      back: 'nombresespalda.webp',
       extras: [],
     },
   },
   {
-    id: 'metanoia',
-    name: 'Diseño 03 — Metanoia blanco',
+    id: 'exodo',
+    name: 'Diseño 03 — Exodo',
+    color: 'Marfil',
     men: {
-      front: 'metanoiafrenteblanco.webp', // REEMPLAZAR
-      back: 'metanoiaespaldablanco.webp',
+      front: 'Exodofrentehombre.png',
+      back: 'Exodoespaldahombre.png',
       extras: [],
     },
     women: {
-      front: 'metanoiafrente.webp', // REEMPLAZAR por la foto frente del diseño 03 mujer
-      back: 'metanoiaespalda.webp', // REEMPLAZAR por la foto espalda del diseño 03 mujer
+      front: 'Exodofrentemujer.png',
+      back: 'Exodoespaldamujer.png',
       extras: [],
     },
   },
   {
-    id: 'umbral',
-    name: 'Diseño 04 — Umbral',
+    id: 'exodo-saco',
+    name: 'Diseño 04 — Exodo saco',
+    color: 'Marfil',
     men: {
-      front: 'metanoiafrenteblanco.webp', // REEMPLAZAR
-      back: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/diseno04_hombre_espalda-WH2d1yP9xccfYm66lfVC0kkOZec2et.webp',
+      front: 'Exodofrentesaco.png',
+      back: 'Exodoespaldasaco.png',
       extras: [],
     },
     women: {
-      front: 'graciamujerfrente.webp', // REEMPLAZAR por la foto frente del diseño 04 mujer
-      back: 'graciamujerespalda.webp', // REEMPLAZAR por la foto espalda del diseño 04 mujer
+      front: 'graciamujerfrente.webp', // PENDIENTE: foto frente mujer del diseño 04
+      back: 'graciamujerespalda.webp', // PENDIENTE: foto espalda mujer del diseño 04
       extras: [],
     },
   },
@@ -124,15 +142,20 @@ const tee = (design: Design, index: number, collection: 'men' | 'women'): Produc
     material: '100% algodón',
     weight: '200 GSM',
     fit: 'Oversized / relaxed fit',
-    color: 'Marfil',
+    color: design.color ?? 'Marfil',
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     images: {
-      front: photos.front,
-      back: photos.back,
-      details: extras[0] ?? photos.front,
-      material: assets.teeMaterial,
+      front: img(photos.front),
+      back: img(photos.back),
+      details: img(extras[0] ?? photos.front),
+      material: img(photos.material ?? assets.teeMaterial),
     },
-    gallery: [photos.front, photos.back, ...extras, assets.teeMaterial],
+    gallery: [
+      { src: img(photos.front), label: 'FRONT' },
+      { src: img(photos.back), label: 'BACK' },
+      ...extras.map((src, i) => ({ src: img(src), label: extras.length > 1 ? `DETAIL ${i + 1}` : 'DETAIL' })),
+      { src: img(photos.material ?? assets.teeMaterial), label: 'MATERIAL' },
+    ],
     available: true,
     featured: true,
   }
@@ -189,8 +212,12 @@ const jacketProduct = (jacket: Jacket, index: number): Product => {
     fit: 'Relaxed fit',
     color: 'Denim claro',
     sizes: ['S', 'M', 'L'],
-    images: { front: jacket.front, back: jacket.back, details: extras[0] ?? jacket.front },
-    gallery: [jacket.front, jacket.back, ...extras],
+    images: { front: img(jacket.front), back: img(jacket.back), details: img(extras[0] ?? jacket.front) },
+    gallery: [
+      { src: img(jacket.front), label: 'FRONT' },
+      { src: img(jacket.back), label: 'BACK' },
+      ...extras.map((src, i) => ({ src: img(src), label: extras.length > 1 ? `DETAIL ${i + 1}` : 'DETAIL' })),
+    ],
     available: true,
     featured: true,
   }
@@ -208,4 +235,4 @@ export const products: Product[] = [
 export const getProduct = (slug: string) => products.find((product) => product.slug === slug)
 export const getCollection = (collection: Product['collection']) => products.filter((product) => product.collection === collection)
 export const formatPrice = (price: number) => new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(price)
-export const heroImage = assets.hero
+export const heroImage = img(assets.hero)

@@ -11,10 +11,13 @@ export type Product = {
   material: string
   weight?: string
   fit: string
+  garment: string
+  neck: string
   color: string
   sizes: string[]
   images: { front: string; back: string; details?: string; material?: string }
   gallery: GalleryImage[] // todas las fotos del producto, en orden, con su etiqueta
+  extraDetails: string[] // líneas extra para "Detalles de la prenda"
   available: boolean
   featured: boolean
 }
@@ -24,7 +27,7 @@ export type Product = {
 // ---------------------------------------------------------------------------
 const assets = {
   hero: 'Portada1.webp',
-  teeMaterial: 'GraciaDetalles.webp', // foto de material por defecto (si un diseño no tiene la suya)
+  teeMaterial: 'GraciaDetalles.webp', // foto de material por defecto (si una camiseta no tiene la suya)
 }
 
 // Convierte 'foto.webp' en '/foto.webp' para que cargue desde cualquier página.
@@ -33,93 +36,216 @@ const img = (src: string) =>
   src.startsWith('http') || src.startsWith('/') ? src : `/${src}`
 
 // ---------------------------------------------------------------------------
+// VALORES POR DEFECTO DE LAS CAMISETAS
+// Si una camiseta no define un dato, usa el de aquí.
+// ---------------------------------------------------------------------------
+const teeDefaults = {
+  price: 99000,
+  garment: 'Camiseta manga corta',
+  description: 'Una pieza de la primera colección MANTOS. Diseñada para expresar identidad y personalidad a través de una propuesta gráfica contemporánea.',
+  material: '100% algodón',
+  weight: '200 GSM',
+  fit: 'Oversized / relaxed fit',
+  neck: 'Cuello redondo acanalado',
+  color: 'Marfil',
+  sizes: ['XS', 'S', 'M', 'L', 'XL'],
+}
+
+// ---------------------------------------------------------------------------
 // DISEÑOS
-// Cada diseño tiene sus propias fotos para HOMBRE y para MUJER.
+// Cada diseño tiene una versión HOMBRE (men) y una MUJER (women).
+// Cada versión es independiente: puede tener su propio precio, detalles y fotos.
+//
+// OBLIGATORIOS
 //   front  = foto principal (la que se ve en el catálogo)
 //   back   = foto de espalda
-//   material = foto de detalle/material de ese diseño (opcional)
-//   extras = fotos adicionales (agrega todas las que quieras)
-//   color (a nivel de diseño) = color de la prenda, ej. 'Arena', 'Marfil'
 //
-// Por ahora dejé las fotos que ya tenías para que la página no se rompa.
-// Solo reemplaza el nombre de cada archivo por la foto correcta de cada diseño.
+// OPCIONALES (si no los pones, usa los valores por defecto de arriba)
+//   detailPhoto   = foto de DETALLE de ESA prenda (miniatura DETAIL, con zoom)
+//   materialPhoto = foto de MATERIAL de ESA prenda (miniatura MATERIAL, con zoom)
+//   extras        = fotos adicionales (todas las que quieras, aparecen después)
+//   price         = precio, ej. 89000
+//   description   = descripción propia
+//   garment       = tipo de prenda, ej. 'Camiseta manga corta', 'Saco'
+//   material      = ej. '100% algodón peinado'
+//   weight        = gramaje, ej. '240 GSM'
+//   fit           = ej. 'Boxy fit'
+//   neck          = ej. 'Cuello redondo'
+//   color         = ej. 'Arena'
+//   sizes         = ej. ['S', 'M', 'L']
+//   details       = líneas extra para "Detalles de la prenda",
+//                   ej. ['Estampado bordado', 'Etiqueta interna MANTOS']
+//
 // Los archivos locales deben estar en la carpeta /public.
 // ---------------------------------------------------------------------------
-type DesignPhotos = {
+type Variant = {
   front: string
   back: string
-  material?: string // foto de detalle/material de ESTE diseño (si no pones, usa la general)
   extras?: string[]
+  detailPhoto?: string
+  materialPhoto?: string
+  price?: number
+  description?: string
+  garment?: string
+  material?: string
+  weight?: string
+  fit?: string
+  neck?: string
+  color?: string
+  sizes?: string[]
+  details?: string[]
 }
 
 type Design = {
   id: string
   name: string
-  color?: string // color de este diseño (si no pones, usa 'Marfil')
-  men: DesignPhotos
-  women: DesignPhotos
+  men: Variant
+  women: Variant
 }
 
 const designs: Design[] = [
   {
     id: 'metanoia',
     name: 'Diseño 01 — Metanoia',
-    color: 'Marfil', // cambiar si el color es otro
     men: {
       front: 'metanoiafrenteblanco.webp',
       back: 'metanoiaespaldablanco.webp',
-      // material: 'metanoiadetalle.webp', // foto de material propia (opcional)
       extras: ['metanoiafrentehombre.webp', 'metanoiaespaldahombre.webp'],
+      // detailPhoto: 'metanoiadetallehombre.webp',     // ← foto DETALLE de esta prenda
+      // materialPhoto: 'metanoiamaterialhombre.webp',  // ← foto MATERIAL de esta prenda
+      price: 99000,
+      description: 'Una pieza de la primera colección MANTOS. Diseñada para expresar identidad y personalidad a través de una propuesta gráfica contemporánea.',
+      garment: 'Camiseta manga corta',
+      material: '100% algodón',
+      weight: '200 GSM',
+      fit: 'Oversized / relaxed fit',
+      neck: 'Cuello redondo acanalado',
+      color: 'Marfil',
+      details: [],
     },
     women: {
       front: 'metanoiafrente.webp',
       back: 'metanoiaespalda.webp',
       extras: ['metanoiafrentestile.webp'],
+      // detailPhoto: 'metanoiadetallemujer.webp',     // ← foto DETALLE de esta prenda
+      // materialPhoto: 'metanoiamaterialmujer.webp',  // ← foto MATERIAL de esta prenda
+      price: 99000,
+      description: 'Una pieza de la primera colección MANTOS. Diseñada para expresar identidad y personalidad a través de una propuesta gráfica contemporánea.',
+      garment: 'Camiseta manga corta',
+      material: '100% algodón',
+      weight: '200 GSM',
+      fit: 'Oversized / relaxed fit',
+      neck: 'Cuello redondo acanalado',
+      color: 'Marfil',
+      details: [],
     },
   },
   {
     id: 'sus-nombres',
     name: 'Diseño 02 — Sus nombres',
-    color: 'Marfil',
     men: {
       front: 'nombresfrentehombre.webp',
       back: 'nombresespaldahombre.webp',
-      extras: ['nombresdetalle.webp'],
+      extras: [],
+      detailPhoto: 'nombresdetalle.webp',     // ← foto DETALLE de esta prenda
+      // materialPhoto: 'nombresmaterialhombre.webp',  // ← foto MATERIAL de esta prenda
+      price: 99000,
+      description: 'Una pieza de la primera colección MANTOS. Diseñada para expresar identidad y personalidad a través de una propuesta gráfica contemporánea.',
+      garment: 'Camiseta manga corta',
+      material: '100% algodón',
+      weight: '200 GSM',
+      fit: 'Oversized / relaxed fit',
+      neck: 'Cuello redondo acanalado',
+      color: 'Marfil',
+      details: [],
     },
     women: {
       front: 'nombresfrente.webp',
       back: 'nombresespalda.webp',
       extras: [],
+      // detailPhoto: 'nombresdetallemujer.webp',     // ← foto DETALLE de esta prenda
+      // materialPhoto: 'nombresmaterialmujer.webp',  // ← foto MATERIAL de esta prenda
+      price: 99000,
+      description: 'Una pieza de la primera colección MANTOS. Diseñada para expresar identidad y personalidad a través de una propuesta gráfica contemporánea.',
+      garment: 'Camiseta manga corta',
+      material: '100% algodón',
+      weight: '200 GSM',
+      fit: 'Oversized / relaxed fit',
+      neck: 'Cuello redondo acanalado',
+      color: 'Marfil',
+      details: [],
     },
   },
   {
     id: 'exodo',
     name: 'Diseño 03 — Exodo',
-    color: 'Marfil',
     men: {
       front: 'Exodofrentehombre.png',
       back: 'Exodoespaldahombre.png',
       extras: [],
+      // detailPhoto: 'exododetallehombre.webp',     // ← foto DETALLE de esta prenda
+      // materialPhoto: 'exodomaterialhombre.webp',  // ← foto MATERIAL de esta prenda
+      price: 99000,
+      description: 'Una pieza de la primera colección MANTOS. Diseñada para expresar identidad y personalidad a través de una propuesta gráfica contemporánea.',
+      garment: 'Camiseta manga corta',
+      material: '100% algodón',
+      weight: '200 GSM',
+      fit: 'Oversized / relaxed fit',
+      neck: 'Cuello redondo acanalado',
+      color: 'Marfil',
+      details: [],
     },
     women: {
       front: 'Exodofrentemujer.png',
       back: 'Exodoespaldamujer.png',
       extras: [],
+      // detailPhoto: 'exododetallemujer.webp',     // ← foto DETALLE de esta prenda
+      // materialPhoto: 'exodomaterialmujer.webp',  // ← foto MATERIAL de esta prenda
+      price: 99000,
+      description: 'Una pieza de la primera colección MANTOS. Diseñada para expresar identidad y personalidad a través de una propuesta gráfica contemporánea.',
+      garment: 'Camiseta manga corta',
+      material: '100% algodón',
+      weight: '200 GSM',
+      fit: 'Oversized / relaxed fit',
+      neck: 'Cuello redondo acanalado',
+      color: 'Marfil',
+      details: [],
     },
   },
   {
     id: 'exodo-saco',
     name: 'Diseño 04 — Exodo saco',
-    color: 'Marfil',
     men: {
       front: 'Exodofrentesaco.png',
       back: 'Exodoespaldasaco.png',
       extras: [],
+      // detailPhoto: 'exodosacodetallehombre.webp',     // ← foto DETALLE de esta prenda
+      // materialPhoto: 'exodosacomaterialhombre.webp',  // ← foto MATERIAL de esta prenda
+      price: 99000,
+      description: 'Una pieza de la primera colección MANTOS. Diseñada para expresar identidad y personalidad a través de una propuesta gráfica contemporánea.',
+      garment: 'Saco',
+      material: '100% algodón',
+      weight: '200 GSM',
+      fit: 'Oversized / relaxed fit',
+      neck: 'Cuello redondo acanalado',
+      color: 'Marfil',
+      details: [],
     },
     women: {
       front: 'graciamujerfrente.webp', // PENDIENTE: foto frente mujer del diseño 04
       back: 'graciamujerespalda.webp', // PENDIENTE: foto espalda mujer del diseño 04
       extras: [],
+      // detailPhoto: 'exodosacodetallemujer.webp',     // ← foto DETALLE de esta prenda
+      // materialPhoto: 'exodosacomaterialmujer.webp',  // ← foto MATERIAL de esta prenda
+      price: 99000,
+      description: 'Una pieza de la primera colección MANTOS. Diseñada para expresar identidad y personalidad a través de una propuesta gráfica contemporánea.',
+      garment: 'Saco',
+      material: '100% algodón',
+      weight: '200 GSM',
+      fit: 'Oversized / relaxed fit',
+      neck: 'Cuello redondo acanalado',
+      color: 'Marfil',
+      details: [],
     },
   },
 ]
@@ -128,8 +254,10 @@ const designs: Design[] = [
 // CONSTRUCTOR DE CAMISETAS (no necesitas tocar esto)
 // ---------------------------------------------------------------------------
 const tee = (design: Design, index: number, collection: 'men' | 'women'): Product => {
-  const photos = design[collection]
-  const extras = photos.extras ?? []
+  const v = design[collection]
+  const extras = v.extras ?? []
+  const materialPhoto = img(v.materialPhoto ?? assets.teeMaterial)
+  const detailPhoto = v.detailPhoto ? img(v.detailPhoto) : undefined
 
   return {
     id: `${design.id}-${collection}`,
@@ -137,25 +265,29 @@ const tee = (design: Design, index: number, collection: 'men' | 'women'): Produc
     name: design.name,
     category: 't-shirt',
     collection,
-    price: 99000,
-    description: 'Una pieza de la primera colección MANTOS. Diseñada para expresar identidad y personalidad a través de una propuesta gráfica contemporánea.',
-    material: '100% algodón',
-    weight: '200 GSM',
-    fit: 'Oversized / relaxed fit',
-    color: design.color ?? 'Marfil',
-    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    price: v.price ?? teeDefaults.price,
+    description: v.description ?? teeDefaults.description,
+    garment: v.garment ?? teeDefaults.garment,
+    material: v.material ?? teeDefaults.material,
+    weight: v.weight ?? teeDefaults.weight,
+    fit: v.fit ?? teeDefaults.fit,
+    neck: v.neck ?? teeDefaults.neck,
+    color: v.color ?? teeDefaults.color,
+    sizes: v.sizes ?? teeDefaults.sizes,
     images: {
-      front: img(photos.front),
-      back: img(photos.back),
-      details: img(extras[0] ?? photos.front),
-      material: img(photos.material ?? assets.teeMaterial),
+      front: img(v.front),
+      back: img(v.back),
+      details: detailPhoto,
+      material: materialPhoto,
     },
     gallery: [
-      { src: img(photos.front), label: 'FRONT' },
-      { src: img(photos.back), label: 'BACK' },
-      ...extras.map((src, i) => ({ src: img(src), label: extras.length > 1 ? `DETAIL ${i + 1}` : 'DETAIL' })),
-      { src: img(photos.material ?? assets.teeMaterial), label: 'MATERIAL' },
+      { src: img(v.front), label: 'FRONT' },
+      { src: img(v.back), label: 'BACK' },
+      ...(detailPhoto ? [{ src: detailPhoto, label: 'DETAIL' }] : []),
+      { src: materialPhoto, label: 'MATERIAL' },
+      ...extras.map((src, i) => ({ src: img(src), label: `EXTRA ${i + 1}` })),
     ],
+    extraDetails: v.details ?? [],
     available: true,
     featured: true,
   }
@@ -163,16 +295,39 @@ const tee = (design: Design, index: number, collection: 'men' | 'women'): Produc
 
 // ---------------------------------------------------------------------------
 // CHAQUETAS DENIM (sección "Denim, Reimagined" — mujer)
-// Igual que las camisetas: front, back y las fotos extras que quieras.
+// Obligatorios: id, name, front, back
+// Opcionales: extras, materialPhoto, price, description, material, weight,
+//             fit, neck, color, sizes, details
 // OJO: 'front' es la foto que se ve en el catálogo.
 // ---------------------------------------------------------------------------
 type Jacket = {
   id: string
   name: string
-  description: string
   front: string
   back: string
   extras?: string[]
+  detailPhoto?: string
+  materialPhoto?: string
+  price?: number
+  description?: string
+  garment?: string
+  material?: string
+  weight?: string
+  fit?: string
+  neck?: string
+  color?: string
+  sizes?: string[]
+  details?: string[]
+}
+
+const jacketDefaults = {
+  price: 189000,
+  garment: 'Chaqueta denim',
+  material: 'Denim de algodón',
+  fit: 'Relaxed fit',
+  neck: 'Cuello camisero',
+  color: 'Denim claro',
+  sizes: ['S', 'M', 'L'],
 }
 
 const jackets: Jacket[] = [
@@ -183,8 +338,10 @@ const jackets: Jacket[] = [
     front: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/chaqueta01_mujer_frente-lzoGvqDgFJzM6Tvk1GSd0EZ3yAqxBX.webp',
     back: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/chaqueta01_mujer_espalda-iebFgJ12ZftLT7oGqIf8oblZ2QnvJC.webp',
     extras: [
-      // 'chaqueta01_detalle1.webp',
+      // 'chaqueta01_extra1.webp',
     ],
+    // detailPhoto: 'chaqueta01_detalle.webp',     // ← foto DETALLE
+    // materialPhoto: 'chaqueta01_material.webp',  // ← foto MATERIAL
   },
   {
     id: 'chaqueta-02-women',
@@ -193,12 +350,14 @@ const jackets: Jacket[] = [
     front: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/chaqueta02_mujer_frente-2XOspKLk1AwR07UGD0MSoGmU1sdINO.webp',
     back: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/chaqueta02_mujer_espalda-VQCDuXBQTtIH8dbm4eGyROr94SlN13.webp',
     extras: [
-      // 'chaqueta02_detalle1.webp',
+      // 'chaqueta02_extra1.webp',
     ],
+    // detailPhoto: 'chaqueta02_detalle.webp',     // ← foto DETALLE
+    // materialPhoto: 'chaqueta02_material.webp',  // ← foto MATERIAL
   },
 ]
 
-const jacketProduct = (jacket: Jacket, index: number): Product => {
+const jacketProduct = (jacket: Jacket): Product => {
   const extras = jacket.extras ?? []
   return {
     id: jacket.id,
@@ -206,18 +365,29 @@ const jacketProduct = (jacket: Jacket, index: number): Product => {
     name: jacket.name,
     category: 'jacket',
     collection: 'women',
-    price: 189000,
-    description: jacket.description,
-    material: 'Denim de algodón',
-    fit: 'Relaxed fit',
-    color: 'Denim claro',
-    sizes: ['S', 'M', 'L'],
-    images: { front: img(jacket.front), back: img(jacket.back), details: img(extras[0] ?? jacket.front) },
+    price: jacket.price ?? jacketDefaults.price,
+    description: jacket.description ?? '',
+    garment: jacket.garment ?? jacketDefaults.garment,
+    material: jacket.material ?? jacketDefaults.material,
+    weight: jacket.weight,
+    fit: jacket.fit ?? jacketDefaults.fit,
+    neck: jacket.neck ?? jacketDefaults.neck,
+    color: jacket.color ?? jacketDefaults.color,
+    sizes: jacket.sizes ?? jacketDefaults.sizes,
+    images: {
+      front: img(jacket.front),
+      back: img(jacket.back),
+      details: jacket.detailPhoto ? img(jacket.detailPhoto) : undefined,
+      material: jacket.materialPhoto ? img(jacket.materialPhoto) : undefined,
+    },
     gallery: [
       { src: img(jacket.front), label: 'FRONT' },
       { src: img(jacket.back), label: 'BACK' },
-      ...extras.map((src, i) => ({ src: img(src), label: extras.length > 1 ? `DETAIL ${i + 1}` : 'DETAIL' })),
+      ...(jacket.detailPhoto ? [{ src: img(jacket.detailPhoto), label: 'DETAIL' }] : []),
+      ...(jacket.materialPhoto ? [{ src: img(jacket.materialPhoto), label: 'MATERIAL' }] : []),
+      ...extras.map((src, i) => ({ src: img(src), label: `EXTRA ${i + 1}` })),
     ],
+    extraDetails: jacket.details ?? [],
     available: true,
     featured: true,
   }
@@ -229,7 +399,7 @@ const jacketProduct = (jacket: Jacket, index: number): Product => {
 export const products: Product[] = [
   ...designs.map((design, i) => tee(design, i, 'men')),
   ...designs.map((design, i) => tee(design, i, 'women')),
-  ...jackets.map((jacket, i) => jacketProduct(jacket, i)),
+  ...jackets.map((jacket) => jacketProduct(jacket)),
 ]
 
 export const getProduct = (slug: string) => products.find((product) => product.slug === slug)

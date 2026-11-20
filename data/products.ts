@@ -17,11 +17,11 @@ export type Product = {
 }
 
 const assets = {
-  hero: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mantoshombremujerfrontal-ew8tqb0nd0Xu7KwHg4r2dA2V9287XA.webp',
-  teeMaterial: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/camisaalgodon200g-FDFayj4GmQwoDFxg7Bm2mkCeuvIAT5.webp',
-  womenTeeFront: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/diseno01_mujer_frente-HFlccCYQxZrFGGbrkB02CtZdBvxeIJ.webp',
-  womenTeeBack: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/diseno01_mujer_espalda-A61BfXrpyyl8OmPaTX7XccTsueDQu0.webp',
-  menTee: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/diseno01_hombre_frente-O2pituqG2GzzJZlSXKnYtmJVNNkK1I.webp',
+  hero: 'Portada1.webp',
+  teeMaterial: 'GraciaDetalles.webp',
+  womenTeeFront: 'graciamujerfrente.webp',
+  womenTeeBack: 'graciamujerespalda.webp',
+  menTee: 'metanoiafrenteblanco.webp',
   jacket1Front: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/chaqueta01_mujer_frente-lzoGvqDgFJzM6Tvk1GSd0EZ3yAqxBX.webp',
   jacket1Back: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/chaqueta01_mujer_espalda-iebFgJ12ZftLT7oGqIf8oblZ2QnvJC.webp',
   jacket2Front: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/chaqueta02_mujer_frente-2XOspKLk1AwR07UGD0MSoGmU1sdINO.webp',

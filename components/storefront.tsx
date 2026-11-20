@@ -17,8 +17,8 @@ export function Header() {
     <nav className="nav-side nav-left" aria-label="Colecciones">{links}</nav>
     <button className="mobile-menu icon-button" aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button>
     <Link className="wordmark" href="/" aria-label="MANTOS, inicio">MANTOS</Link>
-    <div className="nav-side nav-right"><a href="https://wa.me/573000000000" target="_blank" rel="noreferrer">CONTACT</a><a className="social-link" href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram"><Camera /></a><button className="bag-button" onClick={() => setOpen(true)} aria-label={`Abrir bolsa, ${count} productos`}><ShoppingBag /><span>{count}</span></button></div>
-    {menuOpen && <div className="mobile-menu-panel">{links}<a href="https://wa.me/573000000000" target="_blank" rel="noreferrer">CONTACT</a><button onClick={() => { setOpen(true); setMenuOpen(false) }}>SHOPPING BAG ({count})</button></div>}
+    <div className="nav-side nav-right"><a href="https://wa.me/573114769412" target="_blank" rel="noreferrer">CONTACT</a><a className="social-link" href="https://www.instagram.com/somosmantos/" target="_blank" rel="noreferrer" aria-label="Instagram"><Camera /></a><a className="social-link" href="https://www.instagram.com/somosmantos/" target="_blank" rel="noreferrer" aria-label="Instagram"><Camera /></a><button className="bag-button" onClick={() => setOpen(true)} aria-label={`Abrir bolsa, ${count} productos`}><ShoppingBag /><span>{count}</span></button></div>
+    {menuOpen && <div className="mobile-menu-panel">{links}<a href="https://wa.me/573114769412" target="_blank" rel="noreferrer">CONTACT</a><button onClick={() => { setOpen(true); setMenuOpen(false) }}>SHOPPING BAG ({count})</button></div>}
   </header>
 }
 

@@ -26,7 +26,7 @@ export type Product = {
 // FOTOS GENERALES
 // ---------------------------------------------------------------------------
 const assets = {
-  hero: 'Portada2.png',
+  hero: 'portada2.png',
   teeMaterial: 'GraciaDetalles.webp', // foto de material por defecto (si una camiseta no tiene la suya)
 }
 
@@ -111,69 +111,69 @@ const designs: Design[] = [
       front: 'metanoiafrenteblanco.webp',
       back: 'metanoiaespaldablanco.webp',
       extras: ['metanoiafrentehombre.webp', 'metanoiaespaldahombre.webp'],
-      // detailPhoto: 'metanoiadetallehombre.webp',     // ← foto DETALLE de esta prenda
-      // materialPhoto: 'metanoiamaterialhombre.webp',  // ← foto MATERIAL de esta prenda
-      price: 99000,
-      description: 'Una pieza de la primera colección MANTOS. Diseñada para expresar identidad y personalidad a través de una propuesta gráfica contemporánea.',
-      garment: 'Camiseta manga corta',
+      detailPhoto: 'metanoiafrentehombre.webp',   // ← foto DETALLE de esta prenda
+      materialPhoto: 'metanoiadetalleespalda.webp',  // ← foto MATERIAL de esta prenda
+      price: 99900,
+      description: 'No te conformes. Transfórmate. Inspirado en Romanos 12:2 y en el significado de Metanoia: una transformación profunda de la mente y el corazón. El cerebro representa ese cambio interior, una invitación a romper con los patrones del mundo y permitir que Dios transforme nuestra manera de pensar y vivir.',
+      garment: 'Camisa Oversized manga corta',
       material: '100% algodón',
-      weight: '200 GSM',
-      fit: 'Oversized / relaxed fit',
+      weight: '250 GSM',
+      fit: 'Oversized',
       neck: 'Cuello redondo acanalado',
-      color: 'Marfil',
-      details: [],
+      color: 'Arena / Vainilla',
+      details: ['M','L'],
     },
     women: {
       front: 'metanoiafrente.webp',
       back: 'metanoiaespalda.webp',
       extras: ['metanoiafrentestile.webp'],
-      // detailPhoto: 'metanoiadetallemujer.webp',     // ← foto DETALLE de esta prenda
-      // materialPhoto: 'metanoiamaterialmujer.webp',  // ← foto MATERIAL de esta prenda
-      price: 99000,
-      description: 'Una pieza de la primera colección MANTOS. Diseñada para expresar identidad y personalidad a través de una propuesta gráfica contemporánea.',
+      detailPhoto: 'metanoiafrentestile.webp',     // ← foto DETALLE de esta prenda
+      materialPhoto: 'metanoiadetalleespalda.webp',  // ← foto MATERIAL de esta prenda
+      price: 85000,
+      description: 'No te conformes. Transfórmate. Inspirado en Romanos 12:2 y en el significado de Metanoia: una transformación profunda de la mente y el corazón. El cerebro representa ese cambio interior, una invitación a romper con los patrones del mundo y permitir que Dios transforme nuestra manera de pensar y vivir.',
       garment: 'Camiseta manga corta',
       material: '100% algodón',
-      weight: '200 GSM',
-      fit: 'Oversized / relaxed fit',
+      weight: '250 GSM',
+      fit: 'Croptop',
       neck: 'Cuello redondo acanalado',
-      color: 'Marfil',
-      details: [],
+      color: 'Vainilla',
+      details: ['XL-pequeña'],
     },
   },
   {
     id: 'sus-nombres',
     name: 'Diseño 02 — Sus nombres',
     men: {
-      front: 'nombresfrentehombre.webp',
-      back: 'nombresespaldahombre.webp',
+      front: 'nombresfrentehombre.png',
+      back: 'nombresespaldahombre.png',
       extras: [],
-      detailPhoto: 'nombresdetalle.webp',     // ← foto DETALLE de esta prenda
-      // materialPhoto: 'nombresmaterialhombre.webp',  // ← foto MATERIAL de esta prenda
-      price: 99000,
-      description: 'Una pieza de la primera colección MANTOS. Diseñada para expresar identidad y personalidad a través de una propuesta gráfica contemporánea.',
+      detailPhoto: 'nombresdetalle.png',     // ← foto DETALLE de esta prenda
+      materialPhoto: 'nombresdetalle.png',  // ← foto MATERIAL de esta prenda
+      price: 99900,
+      description: 'Una revelación de su carácter. Cada nombre revela una faceta de su grandeza. De Génesis a Yeshua, un recorrido por las Escrituras que nos recuerda que, detrás de cada nombre, hay una promesa, un carácter y un Dios eterno.',
       garment: 'Camiseta manga corta',
       material: '100% algodón',
-      weight: '200 GSM',
+      weight: '250 GSM',
       fit: 'Oversized / relaxed fit',
       neck: 'Cuello redondo acanalado',
-      color: 'Marfil',
-      details: [],
+      color: 'Negro',
+      details: ['L', 'XL', 'M'],
     },
     women: {
-      front: 'nombresfrente.webp',
-      back: 'nombresespalda.webp',
+      front: 'nombresfrente.png',
+      back: 'nombresespalda.png',
       extras: [],
-      // detailPhoto: 'nombresdetallemujer.webp',     // ← foto DETALLE de esta prenda
-      // materialPhoto: 'nombresmaterialmujer.webp',  // ← foto MATERIAL de esta prenda
-      price: 99000,
-      description: 'Una pieza de la primera colección MANTOS. Diseñada para expresar identidad y personalidad a través de una propuesta gráfica contemporánea.',
+      detailPhoto: 'nombresesdetalle.webp',     // ← foto DETALLE de esta prenda
+      materialPhoto: 'nombresesdetalle.webp',  // ← foto MATERIAL de esta prenda
+      price: 99900,
+      description: 'Una revelación de su carácter. Cada nombre revela una faceta de su grandeza. De Génesis a Yeshua, un recorrido por las Escrituras que nos recuerda que, detrás de cada nombre, hay una promesa, un carácter y un Dios eterno.',
       garment: 'Camiseta manga corta',
       material: '100% algodón',
-      weight: '200 GSM',
+      weight: '250 GSM',
       fit: 'Oversized / relaxed fit',
       neck: 'Cuello redondo acanalado',
-      color: 'Marfil',
-      details: [],
+      color: 'Negro',
+      details: ['M','L'],
     },
   },
   {
@@ -183,33 +183,33 @@ const designs: Design[] = [
       front: 'Exodofrentehombre.png',
       back: 'Exodoespaldahombre.png',
       extras: [],
-      // detailPhoto: 'exododetallehombre.webp',     // ← foto DETALLE de esta prenda
-      // materialPhoto: 'exodomaterialhombre.webp',  // ← foto MATERIAL de esta prenda
+      detailPhoto: 'Exododetallesaco.png',     // ← foto DETALLE de esta prenda
+      materialPhoto: 'Exododetallesaco.png',  // ← foto MATERIAL de esta prenda
       price: 99000,
-      description: 'Una pieza de la primera colección MANTOS. Diseñada para expresar identidad y personalidad a través de una propuesta gráfica contemporánea.',
+      description: 'SOLO TU PRESENCIA. no hay destino, promesa ni camino que valga más que Su presencia. La paloma representa esa presencia que nos acompaña y nos transforma. Porque lo que nos distingue no es lo que llevamos, sino Aquel que camina con nosotros.',
       garment: 'Camiseta manga corta',
       material: '100% algodón',
-      weight: '200 GSM',
+      weight: '250 GSM',
       fit: 'Oversized / relaxed fit',
       neck: 'Cuello redondo acanalado',
-      color: 'Marfil',
-      details: [],
+      color: 'Vainilla / negro',
+      details: ['XL','L','M'],
     },
     women: {
       front: 'Exodofrentemujer.png',
       back: 'Exodoespaldamujer.png',
       extras: [],
-      // detailPhoto: 'exododetallemujer.webp',     // ← foto DETALLE de esta prenda
-      // materialPhoto: 'exodomaterialmujer.webp',  // ← foto MATERIAL de esta prenda
-      price: 99000,
-      description: 'Una pieza de la primera colección MANTOS. Diseñada para expresar identidad y personalidad a través de una propuesta gráfica contemporánea.',
+      detailPhoto: 'Exododetallecamisa.png',     // ← foto DETALLE de esta prenda
+      materialPhoto: 'Exododetallecamisa.png',  // ← foto MATERIAL de esta prenda
+      price: 99900,
+      description: 'SOLO TU PRESENCIA. no hay destino, promesa ni camino que valga más que Su presencia. La paloma representa esa presencia que nos acompaña y nos transforma. Porque lo que nos distingue no es lo que llevamos, sino Aquel que camina con nosotros.',
       garment: 'Camiseta manga corta',
       material: '100% algodón',
-      weight: '200 GSM',
-      fit: 'Oversized / relaxed fit',
+      weight: '250 GSM',
+      fit: 'relaxed fit',
       neck: 'Cuello redondo acanalado',
-      color: 'Marfil',
-      details: [],
+      color: 'Negro / Marfil',
+      details: ['L','M'],
     },
   },
   {
@@ -219,33 +219,33 @@ const designs: Design[] = [
       front: 'Exodofrentesaco.png',
       back: 'Exodoespaldasaco.png',
       extras: [],
-      // detailPhoto: 'exodosacodetallehombre.webp',     // ← foto DETALLE de esta prenda
-      // materialPhoto: 'exodosacomaterialhombre.webp',  // ← foto MATERIAL de esta prenda
-      price: 99000,
-      description: 'Una pieza de la primera colección MANTOS. Diseñada para expresar identidad y personalidad a través de una propuesta gráfica contemporánea.',
+      detailPhoto: 'Exododetallesaco.png',     // ← foto DETALLE de esta prenda
+      materialPhoto: 'Exododetallesaco.png',  // ← foto MATERIAL de esta prenda
+      price: 214000,
+      description: 'SOLO TU PRESENCIA. no hay destino, promesa ni camino que valga más que Su presencia. La paloma representa esa presencia que nos acompaña y nos transforma. Porque lo que nos distingue no es lo que llevamos, sino Aquel que camina con nosotros.',
       garment: 'Saco',
       material: '100% algodón',
-      weight: '200 GSM',
+      weight: '410 GSM',
       fit: 'Oversized / relaxed fit',
-      neck: 'Cuello redondo acanalado',
+      neck: 'Capota con cordón',
       color: 'Marfil',
-      details: [],
+      details: ['L','M'],
     },
     women: {
-      front: 'graciamujerfrente.webp', // PENDIENTE: foto frente mujer del diseño 04
-      back: 'graciamujerespalda.webp', // PENDIENTE: foto espalda mujer del diseño 04
+      front: 'Exodofrentesacomujer.png', // PENDIENTE: foto frente mujer del diseño 04
+      back: 'Exodoespaldasacomujer.png', // PENDIENTE: foto espalda mujer del diseño 04
       extras: [],
-      // detailPhoto: 'exodosacodetallemujer.webp',     // ← foto DETALLE de esta prenda
-      // materialPhoto: 'exodosacomaterialmujer.webp',  // ← foto MATERIAL de esta prenda
-      price: 99000,
-      description: 'Una pieza de la primera colección MANTOS. Diseñada para expresar identidad y personalidad a través de una propuesta gráfica contemporánea.',
+      detailPhoto: 'Exododetallesaco.png',     // ← foto DETALLE de esta prenda
+      materialPhoto: 'Exododetallesaco.png',  // ← foto MATERIAL de esta prenda
+      price: 99900,
+      description: 'SOLO TU PRESENCIA. no hay destino, promesa ni camino que valga más que Su presencia. La paloma representa esa presencia que nos acompaña y nos transforma. Porque lo que nos distingue no es lo que llevamos, sino Aquel que camina con nosotros.',
       garment: 'Saco',
       material: '100% algodón',
-      weight: '200 GSM',
-      fit: 'Oversized / relaxed fit',
-      neck: 'Cuello redondo acanalado',
+      weight: '410 GSM',
+      fit: 'Oversized',
+      neck: 'Capota con cordón',
       color: 'Marfil',
-      details: [],
+      details: ['L','M'],
     },
   },
 ]

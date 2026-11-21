@@ -237,7 +237,7 @@ const designs: Design[] = [
       extras: [],
       detailPhoto: 'Exododetallesaco.png',     // ← foto DETALLE de esta prenda
       materialPhoto: 'Exododetallesaco.png',  // ← foto MATERIAL de esta prenda
-      price: 99900,
+      price: 214000,
       description: 'SOLO TU PRESENCIA. no hay destino, promesa ni camino que valga más que Su presencia. La paloma representa esa presencia que nos acompaña y nos transforma. Porque lo que nos distingue no es lo que llevamos, sino Aquel que camina con nosotros.',
       garment: 'Saco',
       material: '100% algodón',

@@ -26,7 +26,7 @@ export type Product = {
 // FOTOS GENERALES
 // ---------------------------------------------------------------------------
 const assets = {
-  hero: 'Portada1.webp',
+  hero: 'Portada2.png',
   teeMaterial: 'GraciaDetalles.webp', // foto de material por defecto (si una camiseta no tiene la suya)
 }
 

@@ -106,9 +106,9 @@ type Design = {
 const designs: Design[] = [
   {
     id: 'metanoia',
-    name: 'Diseño 01 — Metanoia',
+    name: 'Camisa — Metanoia',
     men: {
-      front: 'metanoiafrentehombre.webp',
+      front: 'metanioafrentehombre.webp',
       back: 'metanoiaespaldablanco.webp',
       extras: ['metanoiafrentebeige.webp', 'metanoiaespaldahombre.webp','metanoiaextra.webp'],
       detailPhoto: 'metanoiadetalleespalda.webp',   // ← foto DETALLE de esta prenda
@@ -142,7 +142,7 @@ const designs: Design[] = [
   },
   {
     id: 'sus-nombres',
-    name: 'Diseño 02 — Sus nombres',
+    name: 'Camisa — Sus nombres',
     men: {
       front: 'nombresfrentehombre.webp',
       back: 'nombresespaldahombre.webp',
@@ -178,7 +178,7 @@ const designs: Design[] = [
   },
   {
     id: 'exodo',
-    name: 'Diseño 03 — Exodo',
+    name: 'Camisa — Exodo',
     men: {
       front: 'Exodofrentehombre.png',
       back: 'Exodoespaldahombre.png',

@@ -108,11 +108,11 @@ const designs: Design[] = [
     id: 'metanoia',
     name: 'Diseño 01 — Metanoia',
     men: {
-      front: 'metanoiafrenteblanco.webp',
+      front: 'metanoiafrentehombre.webp',
       back: 'metanoiaespaldablanco.webp',
-      extras: ['metanoiafrentehombre.webp', 'metanoiaespaldahombre.webp'],
-      detailPhoto: 'metanoiafrentehombre.webp',   // ← foto DETALLE de esta prenda
-      materialPhoto: 'metanoiadetalleespalda.webp',  // ← foto MATERIAL de esta prenda
+      extras: ['metanoiafrentebeige.webp', 'metanoiaespaldahombre.webp','metanoiaextra.webp'],
+      detailPhoto: 'metanoiadetalleespalda.webp',   // ← foto DETALLE de esta prenda
+      materialPhoto: 'metanoiamaterialbeige.webp',  // ← foto MATERIAL de esta prenda
       price: 99900,
       description: 'No te conformes. Transfórmate. Inspirado en Romanos 12:2 y en el significado de Metanoia: una transformación profunda de la mente y el corazón. El cerebro representa ese cambio interior, una invitación a romper con los patrones del mundo y permitir que Dios transforme nuestra manera de pensar y vivir.',
       garment: 'Camisa Oversized manga corta',
@@ -126,9 +126,9 @@ const designs: Design[] = [
     women: {
       front: 'metanoiafrente.webp',
       back: 'metanoiaespalda.webp',
-      extras: ['metanoiafrentestile.webp'],
-      detailPhoto: 'metanoiafrentestile.webp',     // ← foto DETALLE de esta prenda
-      materialPhoto: 'metanoiadetalleespalda.webp',  // ← foto MATERIAL de esta prenda
+      extras: ['metanoiafrentemujeroversize.webp','metanoiaespaldamujeroversize.webp'],
+      detailPhoto: 'metanoiaextrablanco.webp',     // ← foto DETALLE de esta prenda
+      materialPhoto: 'metanoiamaterialblanco.webp',  // ← foto MATERIAL de esta prenda
       price: 85000,
       description: 'No te conformes. Transfórmate. Inspirado en Romanos 12:2 y en el significado de Metanoia: una transformación profunda de la mente y el corazón. El cerebro representa ese cambio interior, una invitación a romper con los patrones del mundo y permitir que Dios transforme nuestra manera de pensar y vivir.',
       garment: 'Camiseta manga corta',
@@ -146,7 +146,7 @@ const designs: Design[] = [
     men: {
       front: 'nombresfrentehombre.webp',
       back: 'nombresespaldahombre.webp',
-      extras: ['nombresespaldahombre1.webp', 'nombresesdetalle1.webp'],
+      extras: ['nombresespaldahombre1.webp', 'nombresextra.webp','nombresesdetalle1.webp'],
       detailPhoto: 'nombresdetalle.webp',     // ← foto DETALLE de esta prenda
       materialPhoto: 'nombresmaterial.webp',  // ← foto MATERIAL de esta prenda
       price: 99900,
@@ -163,8 +163,8 @@ const designs: Design[] = [
       front: 'nombresfrente.png',
       back: 'nombresespalda.png',
       extras: [],
-      detailPhoto: 'nombresesdetalle.webp',     // ← foto DETALLE de esta prenda
-      materialPhoto: 'nombresesdetalle.webp',  // ← foto MATERIAL de esta prenda
+      detailPhoto: 'nombresesdetalle1.webp',     // ← foto DETALLE de esta prenda
+      materialPhoto: 'nombresmaterial.webp',  // ← foto MATERIAL de esta prenda
       price: 99900,
       description: 'Una revelación de su carácter. Cada nombre revela una faceta de su grandeza. De Génesis a Yeshua, un recorrido por las Escrituras que nos recuerda que, detrás de cada nombre, hay una promesa, un carácter y un Dios eterno.',
       garment: 'Camiseta manga corta',
@@ -213,14 +213,14 @@ const designs: Design[] = [
     },
   },
   {
-    id: 'exodo-saco',
-    name: 'Diseño 04 — Exodo saco',
+    id: 'exodo-Hoddie',
+    name: 'Hoddie — Exodo',
     men: {
-      front: 'Exodofrentesaco.webp',
-      back: 'Exodoespaldasaco.webp',
-      extras: ['Exodosacoextra1.webp','Exodosacoextra.webp'],
-      detailPhoto: 'Exododetallesaco4.webp',     // ← foto DETALLE de esta prenda
-      materialPhoto: 'Exododetallesaco2.webp',  // ← foto MATERIAL de esta prenda
+      front: 'Exodofrentehoddie.webp',
+      back: 'Exodoespaldahoddie.webp',
+      extras: ['Exodohoddieextra.webp','Exodohoddieextra1.webp','Exododetallehoddie.webp'],
+      detailPhoto: 'Exododetallehoddie4.webp',     // ← foto DETALLE de esta prenda
+      materialPhoto: 'Exododetallehoddie2.webp',  // ← foto MATERIAL de esta prenda
       price: 214000,
       description: 'SOLO TU PRESENCIA. no hay destino, promesa ni camino que valga más que Su presencia. La paloma representa esa presencia que nos acompaña y nos transforma. Porque lo que nos distingue no es lo que llevamos, sino Aquel que camina con nosotros.',
       garment: 'Saco',
@@ -232,9 +232,9 @@ const designs: Design[] = [
       details: ['L','M'],
     },
     women: {
-      front: 'Exodofrentesacomujer.webp', // PENDIENTE: foto frente mujer del diseño 04
-      back: 'Exodoespaldasacomujer.webp', // PENDIENTE: foto espalda mujer del diseño 04
-      extras: [],
+      front: 'Exodofrentehoddiemujer.webp', // PENDIENTE: foto frente mujer del diseño 04
+      back: 'Exodoespaldahoddiemujer.webp', // PENDIENTE: foto espalda mujer del diseño 04
+      extras: ['Exododetallehoddie.webp','Exodohoddieextramujer.webp'],
       detailPhoto: 'Exododetallesaco3.webp',     // ← foto DETALLE de esta prenda
       materialPhoto: 'Exododetallesaco4.webp',  // ← foto MATERIAL de esta prenda
       price: 214000,

@@ -221,7 +221,7 @@ const designs: Design[] = [
       extras: ['Exodohoddieextra.webp','Exodohoddieextra1.webp','Exododetallehoddie.webp'],
       detailPhoto: 'Exododetallehoddie4.webp',     // ← foto DETALLE de esta prenda
       materialPhoto: 'Exododetalleshoddie2.webp',  // ← foto MATERIAL de esta prenda
-      price: 190000,
+      price: 199900,
       description: 'SOLO TU PRESENCIA. no hay destino, promesa ni camino que valga más que Su presencia. La paloma representa esa presencia que nos acompaña y nos transforma. Porque lo que nos distingue no es lo que llevamos, sino Aquel que camina con nosotros.',
       garment: 'Hoddie',
       material: '100% algodón / Burda pesada', //'Burda pesada',
@@ -237,7 +237,7 @@ const designs: Design[] = [
       extras: ['Exodohoddieextramujer.webp'],
       detailPhoto: 'Exododetallehoddie4.webp',     // ← foto DETALLE de esta prenda
       materialPhoto:'Exododetallehoddie3.webp',  // ← foto MATERIAL de esta prenda
-      price: 190000,
+      price: 199900,
       description: 'SOLO TU PRESENCIA. no hay destino, promesa ni camino que valga más que Su presencia. La paloma representa esa presencia que nos acompaña y nos transforma. Porque lo que nos distingue no es lo que llevamos, sino Aquel que camina con nosotros.',
       garment: 'Hoddie',
       material: '100% algodón / Burda pesada', //'Burda pesada',

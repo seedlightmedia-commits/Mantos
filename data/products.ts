@@ -234,9 +234,9 @@ const designs: Design[] = [
     women: {
       front: 'Exodofrentehoddiemujer.webp', // PENDIENTE: foto frente mujer del diseño 04
       back: 'Exodoespaldahoddiemujer.webp', // PENDIENTE: foto espalda mujer del diseño 04
-      extras: ['Exododetallehoddie.webp','Exodohoddieextramujer.webp'],
-      detailPhoto: 'Exododetallehoddie3.webp',     // ← foto DETALLE de esta prenda
-      materialPhoto: 'Exododetallehoddie4.webp',  // ← foto MATERIAL de esta prenda
+      extras: ['Exodohoddieextramujer.webp'],
+      detailPhoto: 'Exododetallehoddie4.webp',     // ← foto DETALLE de esta prenda
+      materialPhoto:'Exododetallehoddie3.webp',  // ← foto MATERIAL de esta prenda
       price: 190000,
       description: 'SOLO TU PRESENCIA. no hay destino, promesa ni camino que valga más que Su presencia. La paloma representa esa presencia que nos acompaña y nos transforma. Porque lo que nos distingue no es lo que llevamos, sino Aquel que camina con nosotros.',
       garment: 'Hoddie',

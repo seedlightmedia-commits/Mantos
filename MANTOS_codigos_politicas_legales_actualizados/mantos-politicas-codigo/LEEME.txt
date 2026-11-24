@@ -1,0 +1,15 @@
+MANTOS — archivos de políticas legales
+
+Archivos incluidos:
+- app/layout.tsx (reemplaza el layout actual; conserva Header, CartProvider, metadata y Vercel Analytics)
+- app/envios-y-cambios/page.tsx
+- app/privacidad/page.tsx
+- app/terminos/page.tsx
+- app/globals.legal.css.txt (copia este bloque AL FINAL de app/globals.css; no reemplaces el CSS existente)
+
+IMPORTANTE ANTES DE PUBLICAR:
+1. En privacidad/page.tsx y terminos/page.tsx reemplaza [COMPLETAR NOMBRE Y APELLIDOS...] por el nombre legal completo de la persona natural responsable.
+2. En privacidad/page.tsx reemplaza [COMPLETAR CORREO...] por un correo de contacto real. Si no tienes correo, créalo antes de publicar y añádelo.
+3. La política de cambios de 5 días calendario es una condición comercial voluntaria para cambios por talla o preferencia. No es lo mismo que el derecho legal de retracto (5 días hábiles cuando aplica) ni la garantía legal.
+4. Revisa estas políticas con asesoría jurídica colombiana antes de publicarlas. El texto no sustituye asesoría legal.
+5. El número de WhatsApp se tomó del storefront.tsx compartido: +57 311 476 9412.

@@ -1,0 +1,30 @@
+
+/* Páginas legales MANTOS */
+.legal-page{min-height:65vh;padding:145px 7% 90px;background:var(--ivory)}
+.legal-header{max-width:900px;margin:0 auto 55px;padding-bottom:30px;border-bottom:1px solid var(--line)}
+.legal-header .eyebrow{color:var(--muted)}
+.legal-header h1{font-size:clamp(32px,5vw,58px);font-weight:400;letter-spacing:.08em;line-height:1.08;margin:18px 0}
+.legal-header>p{font-size:13px;color:#625d56;line-height:1.7;margin:0}
+.legal-content{max-width:900px;margin:0 auto}
+.legal-content section{padding:0 0 30px;margin:0 0 30px;border-bottom:1px solid var(--line)}
+.legal-content h2{font-size:13px;font-weight:600;letter-spacing:.09em;margin:0 0 15px}
+.legal-content p,.legal-content li{font-size:12px;line-height:1.9;color:#5f5a53}
+.legal-content p{margin:0 0 12px}
+.legal-content ul,.legal-content ol{padding-left:20px;margin:8px 0 15px}
+.legal-content li{padding-left:4px;margin:5px 0}
+.legal-content a:not(.legal-cta){text-decoration:underline;text-underline-offset:3px}
+.legal-cta{display:inline-flex;align-items:center;gap:18px;margin-top:10px;padding:14px 17px;background:var(--ink);color:var(--ivory);font-size:9px;letter-spacing:.12em}
+.legal-cta:hover{background:#49443f}
+.legal-note{font-size:10px!important;color:var(--muted)!important;line-height:1.7!important}
+.footer-legal a{position:relative}
+.footer-legal a:after{content:'';position:absolute;left:0;bottom:-5px;width:0;height:1px;background:currentColor;transition:width .25s}
+.footer-legal a:hover:after{width:100%}
+@media(max-width:680px){
+  .legal-page{padding:105px 6% 60px}
+  .legal-header{margin-bottom:35px;padding-bottom:23px}
+  .legal-header h1{font-size:34px;letter-spacing:.055em}
+  .legal-content h2{font-size:12px}
+  .legal-content p,.legal-content li{font-size:11px;line-height:1.85}
+  .legal-content section{padding-bottom:23px;margin-bottom:23px}
+  .legal-cta{font-size:8px;max-width:100%}
+}

@@ -147,7 +147,7 @@ const designs: Design[] = [
       front: 'nombresfrentehombre.webp',
       back: 'nombresespaldahombre.webp',
       extras: ['nombresespaldahombre1.webp', 'nombresesextra.webp','nombresesdetalle1.webp'],
-      detailPhoto: 'nombresdetalle1.webp',     // ← foto DETALLE de esta prenda
+      detailPhoto: 'nombresesdetalle.webp',     // ← foto DETALLE de esta prenda
       materialPhoto: 'nombresesmaterial.webp',  // ← foto MATERIAL de esta prenda
       price: 99900,
       description: 'Una revelación de su carácter. Cada nombre revela una faceta de su grandeza. De Génesis a Yeshua, un recorrido por las Escrituras que nos recuerda que, detrás de cada nombre, hay una promesa, un carácter y un Dios eterno.',

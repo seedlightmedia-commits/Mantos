@@ -2,10 +2,12 @@
 
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import type { Product } from '@/data/products'
+import { buildWhatsAppOrderUrl } from '@/lib/whatsapp-order'
 
 type CartLine = { key: string; product: Product; size: string; quantity: number }
 type CartContextValue = { lines: CartLine[]; count: number; subtotal: number; add: (product: Product, size: string, quantity: number) => void; remove: (key: string) => void; update: (key: string, quantity: number) => void; open: boolean; setOpen: (open: boolean) => void }
 const CartContext = createContext<CartContextValue | null>(null)
+
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [lines, setLines] = useState<CartLine[]>([])
@@ -49,7 +51,7 @@ function CartDrawer() {
           <div className="cart-line-info"><h3>{line.product.name}</h3><p>Talla {line.size}</p><div className="cart-quantity"><button aria-label="Disminuir cantidad" onClick={() => update(line.key, line.quantity - 1)}>−</button><span>{line.quantity}</span><button aria-label="Aumentar cantidad" onClick={() => update(line.key, line.quantity + 1)}>+</button></div></div>
           <div className="cart-line-price"><span>{formatPrice(line.product.price * line.quantity)}</span><button className="remove-link" onClick={() => remove(line.key)}>Eliminar</button></div>
         </article>)}</div>
-        <div className="cart-bottom"><div className="subtotal-row"><span>Subtotal</span><strong>{formatPrice(subtotal)}</strong></div><p>Envío calculado al finalizar la compra.</p><button className="button button-dark full-width" onClick={() => window.alert('La integración de pagos estará disponible próximamente.')}>FINALIZAR COMPRA <span>→</span></button><button className="text-link continue-link" onClick={() => setOpen(false)}>CONTINUAR COMPRANDO</button></div>
+        <div className="cart-bottom"><div className="subtotal-row"><span>Subtotal</span><strong>{formatPrice(subtotal)}</strong></div><p>Envío calculado al finalizar la compra.</p><button className="button button-dark full-width" onClick={() => window.open(buildWhatsAppOrderUrl(lines), '_blank')}>FINALIZAR COMPRA <span>→</span></button><button className="text-link continue-link" onClick={() => setOpen(false)}>CONTINUAR COMPRANDO</button></div>
       </>}
     </aside>
   </div>

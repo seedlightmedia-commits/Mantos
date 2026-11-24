@@ -33,7 +33,7 @@ export function buildWhatsAppOrderUrl(lines: CartLine[]) {
   const totalPrice = lines.reduce((sum, line) => sum + line.product.price * line.quantity, 0)
 
   const message = [
-    'Hola MANTOS 👋 Quiero hacer este pedido:',
+    'Hola MANTOS , Quiero hacer este pedido:',
     '',
     items.join('\n\n'),
     '',

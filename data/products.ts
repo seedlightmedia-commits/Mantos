@@ -26,8 +26,8 @@ export type Product = {
 // FOTOS GENERALES
 // ---------------------------------------------------------------------------
 const assets = {
-  hero: 'portada2.png',
-  teeMaterial: 'GraciaDetalles.webp', // foto de material por defecto (si una camiseta no tiene la suya)
+  hero: 'portada1.webp',
+  teeMaterial: 'Exododetallesaco.webp', // foto de material por defecto (si una camiseta no tiene la suya)
 }
 
 // Convierte 'foto.webp' en '/foto.webp' para que cargue desde cualquier página.
@@ -216,31 +216,31 @@ const designs: Design[] = [
     id: 'exodo-saco',
     name: 'Diseño 04 — Exodo saco',
     men: {
-      front: 'Exodofrentesaco.png',
-      back: 'Exodoespaldasaco.png',
-      extras: [],
-      detailPhoto: 'Exododetallesaco.png',     // ← foto DETALLE de esta prenda
-      materialPhoto: 'Exododetallesaco.png',  // ← foto MATERIAL de esta prenda
+      front: 'Exodofrentesaco.webp',
+      back: 'Exodoespaldasaco.webp',
+      extras: ['Exodosacoextra1.webp','Exodosacoextra.webp'],
+      detailPhoto: 'Exododetallesaco4.webp',     // ← foto DETALLE de esta prenda
+      materialPhoto: 'Exododetallesaco2.webp',  // ← foto MATERIAL de esta prenda
       price: 214000,
       description: 'SOLO TU PRESENCIA. no hay destino, promesa ni camino que valga más que Su presencia. La paloma representa esa presencia que nos acompaña y nos transforma. Porque lo que nos distingue no es lo que llevamos, sino Aquel que camina con nosotros.',
       garment: 'Saco',
-      material: '100% algodón',
+      material: '100% algodón / Burda pesada', //'Burda pesada',
       weight: '410 GSM',
-      fit: 'Oversized / relaxed fit',
+      fit: 'Oversized',
       neck: 'Capota con cordón',
       color: 'Marfil',
       details: ['L','M'],
     },
     women: {
-      front: 'Exodofrentesacomujer.png', // PENDIENTE: foto frente mujer del diseño 04
-      back: 'Exodoespaldasacomujer.png', // PENDIENTE: foto espalda mujer del diseño 04
+      front: 'Exodofrentesacomujer.webp', // PENDIENTE: foto frente mujer del diseño 04
+      back: 'Exodoespaldasacomujer.webp', // PENDIENTE: foto espalda mujer del diseño 04
       extras: [],
-      detailPhoto: 'Exododetallesaco.png',     // ← foto DETALLE de esta prenda
-      materialPhoto: 'Exododetallesaco.png',  // ← foto MATERIAL de esta prenda
+      detailPhoto: 'Exododetallesaco3.webp',     // ← foto DETALLE de esta prenda
+      materialPhoto: 'Exododetallesaco4.webp',  // ← foto MATERIAL de esta prenda
       price: 214000,
       description: 'SOLO TU PRESENCIA. no hay destino, promesa ni camino que valga más que Su presencia. La paloma representa esa presencia que nos acompaña y nos transforma. Porque lo que nos distingue no es lo que llevamos, sino Aquel que camina con nosotros.',
       garment: 'Saco',
-      material: '100% algodón',
+      material: '100% algodón / Burda pesada', //'Burda pesada',
       weight: '410 GSM',
       fit: 'Oversized',
       neck: 'Capota con cordón',

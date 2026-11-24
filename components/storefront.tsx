@@ -43,7 +43,7 @@ export function HomeCollections() {
   const [collection, setCollection] = useState<'men' | 'women'>('men')
   const items = getCollection(collection).filter((product) => product.category === 't-shirt')
   return <section className="first-edition" id="collection">
-    <div className="section-heading"><div><span className="eyebrow">COLECCIÓN 001 · 2025</span><h2>THE FIRST EDITION</h2></div><div className="collection-tabs" role="tablist" aria-label="Seleccionar colección"><button role="tab" aria-selected={collection === 'men'} className={collection === 'men' ? 'active' : ''} onClick={() => setCollection('men')}>MEN</button><button role="tab" aria-selected={collection === 'women'} className={collection === 'women' ? 'active' : ''} onClick={() => setCollection('women')}>WOMEN</button></div></div>
+    <div className="section-heading"><div><span className="eyebrow">COLECCIÓN 001 · 2026</span><h2>THE FIRST EDITION</h2></div><div className="collection-tabs" role="tablist" aria-label="Seleccionar colección"><button role="tab" aria-selected={collection === 'men'} className={collection === 'men' ? 'active' : ''} onClick={() => setCollection('men')}>MEN</button><button role="tab" aria-selected={collection === 'women'} className={collection === 'women' ? 'active' : ''} onClick={() => setCollection('women')}>WOMEN</button></div></div>
     <ProductGrid products={items} />
   </section>
 }

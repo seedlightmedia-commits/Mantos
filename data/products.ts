@@ -146,9 +146,9 @@ const designs: Design[] = [
     men: {
       front: 'nombresfrentehombre.webp',
       back: 'nombresespaldahombre.webp',
-      extras: ['nombresespaldahombre1.webp', 'nombresextra.webp','nombresesdetalle1.webp'],
-      detailPhoto: 'nombresdetalle.webp',     // ← foto DETALLE de esta prenda
-      materialPhoto: 'nombresmaterial.webp',  // ← foto MATERIAL de esta prenda
+      extras: ['nombresespaldahombre1.webp', 'nombresesextra.webp','nombresesdetalle1.webp'],
+      detailPhoto: 'nombresdetalle1.webp',     // ← foto DETALLE de esta prenda
+      materialPhoto: 'nombresesmaterial.webp',  // ← foto MATERIAL de esta prenda
       price: 99900,
       description: 'Una revelación de su carácter. Cada nombre revela una faceta de su grandeza. De Génesis a Yeshua, un recorrido por las Escrituras que nos recuerda que, detrás de cada nombre, hay una promesa, un carácter y un Dios eterno.',
       garment: 'Camiseta manga corta',
@@ -220,10 +220,10 @@ const designs: Design[] = [
       back: 'Exodoespaldahoddie.webp',
       extras: ['Exodohoddieextra.webp','Exodohoddieextra1.webp','Exododetallehoddie.webp'],
       detailPhoto: 'Exododetallehoddie4.webp',     // ← foto DETALLE de esta prenda
-      materialPhoto: 'Exododetallehoddie2.webp',  // ← foto MATERIAL de esta prenda
-      price: 214000,
+      materialPhoto: 'Exododetalleshoddie2.webp',  // ← foto MATERIAL de esta prenda
+      price: 190000,
       description: 'SOLO TU PRESENCIA. no hay destino, promesa ni camino que valga más que Su presencia. La paloma representa esa presencia que nos acompaña y nos transforma. Porque lo que nos distingue no es lo que llevamos, sino Aquel que camina con nosotros.',
-      garment: 'Saco',
+      garment: 'Hoddie',
       material: '100% algodón / Burda pesada', //'Burda pesada',
       weight: '410 GSM',
       fit: 'Oversized',
@@ -235,11 +235,11 @@ const designs: Design[] = [
       front: 'Exodofrentehoddiemujer.webp', // PENDIENTE: foto frente mujer del diseño 04
       back: 'Exodoespaldahoddiemujer.webp', // PENDIENTE: foto espalda mujer del diseño 04
       extras: ['Exododetallehoddie.webp','Exodohoddieextramujer.webp'],
-      detailPhoto: 'Exododetallesaco3.webp',     // ← foto DETALLE de esta prenda
-      materialPhoto: 'Exododetallesaco4.webp',  // ← foto MATERIAL de esta prenda
-      price: 214000,
+      detailPhoto: 'Exododetallehoddie3.webp',     // ← foto DETALLE de esta prenda
+      materialPhoto: 'Exododetallehoddie4.webp',  // ← foto MATERIAL de esta prenda
+      price: 190000,
       description: 'SOLO TU PRESENCIA. no hay destino, promesa ni camino que valga más que Su presencia. La paloma representa esa presencia que nos acompaña y nos transforma. Porque lo que nos distingue no es lo que llevamos, sino Aquel que camina con nosotros.',
-      garment: 'Saco',
+      garment: 'Hoddie',
       material: '100% algodón / Burda pesada', //'Burda pesada',
       weight: '410 GSM',
       fit: 'Oversized',

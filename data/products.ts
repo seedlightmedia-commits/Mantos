@@ -144,11 +144,11 @@ const designs: Design[] = [
     id: 'sus-nombres',
     name: 'Diseño 02 — Sus nombres',
     men: {
-      front: 'nombresfrentehombre.png',
-      back: 'nombresespaldahombre.png',
-      extras: [],
-      detailPhoto: 'nombresdetalle.png',     // ← foto DETALLE de esta prenda
-      materialPhoto: 'nombresdetalle.png',  // ← foto MATERIAL de esta prenda
+      front: 'nombresfrentehombre.webp',
+      back: 'nombresespaldahombre.webp',
+      extras: ['nombresespaldahombre1.webp', 'nombresesdetalle1.webp'],
+      detailPhoto: 'nombresdetalle.webp',     // ← foto DETALLE de esta prenda
+      materialPhoto: 'nombresmaterial.webp',  // ← foto MATERIAL de esta prenda
       price: 99900,
       description: 'Una revelación de su carácter. Cada nombre revela una faceta de su grandeza. De Génesis a Yeshua, un recorrido por las Escrituras que nos recuerda que, detrás de cada nombre, hay una promesa, un carácter y un Dios eterno.',
       garment: 'Camiseta manga corta',

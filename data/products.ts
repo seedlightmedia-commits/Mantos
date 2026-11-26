@@ -44,7 +44,7 @@ const teeDefaults = {
   garment: 'Camiseta manga corta',
   description: 'Una pieza de la primera colección MANTOS. Diseñada para expresar identidad y personalidad a través de una propuesta gráfica contemporánea.',
   material: '100% algodón',
-  weight: '200 GSM',
+  weight: '250 GSM',
   fit: 'Oversized / relaxed fit',
   neck: 'Cuello redondo acanalado',
   color: 'Marfil',
@@ -164,7 +164,7 @@ const designs: Design[] = [
       back: 'nombresespalda.png',
       extras: [],
       detailPhoto: 'nombresesdetalle1.webp',     // ← foto DETALLE de esta prenda
-      materialPhoto: 'nombresmaterial.webp',  // ← foto MATERIAL de esta prenda
+      materialPhoto: 'nombresesmaterial.webp',  // ← foto MATERIAL de esta prenda
       price: 99900,
       description: 'Una revelación de su carácter. Cada nombre revela una faceta de su grandeza. De Génesis a Yeshua, un recorrido por las Escrituras que nos recuerda que, detrás de cada nombre, hay una promesa, un carácter y un Dios eterno.',
       garment: 'Camiseta manga corta',
@@ -196,19 +196,19 @@ const designs: Design[] = [
       details: ['XL','L','M'],
     },
     women: {
-      front: 'Exodofrentemujer.png',
-      back: 'Exodoespaldamujer.png',
-      extras: [],
-      detailPhoto: 'Exododetallecamisa.png',     // ← foto DETALLE de esta prenda
-      materialPhoto: 'Exododetallecamisa.png',  // ← foto MATERIAL de esta prenda
+      front: 'metanoiafrentemujeroversize.webp',
+      back: 'metanoiaespaldamujeroversize.webp',
+      extras: ['Extrametanoiamujeroversize.webp','Extrametanoiamujeroversize1.webp'],
+      detailPhoto: 'metanoiadetalleespalda.webp',     // ← foto DETALLE de esta prenda
+      materialPhoto: 'metanoiamaterialbeige.webp',  // ← foto MATERIAL de esta prenda
       price: 99900,
-      description: 'SOLO TU PRESENCIA. no hay destino, promesa ni camino que valga más que Su presencia. La paloma representa esa presencia que nos acompaña y nos transforma. Porque lo que nos distingue no es lo que llevamos, sino Aquel que camina con nosotros.',
+      description: 'Una revelación de su carácter. Cada nombre revela una faceta de su grandeza. De Génesis a Yeshua, un recorrido por las Escrituras que nos recuerda que, detrás de cada nombre, hay una promesa, un carácter y un Dios eterno.',
       garment: 'Camiseta manga corta',
       material: '100% algodón',
       weight: '250 GSM',
-      fit: 'relaxed fit',
+      fit: 'Oversized / relaxed fit',
       neck: 'Cuello redondo acanalado',
-      color: 'Negro / Marfil',
+      color: 'Beige / Marfil',
       details: ['L','M'],
     },
   },

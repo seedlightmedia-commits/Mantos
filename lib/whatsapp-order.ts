@@ -1,19 +1,24 @@
+
 import type { Product } from '@/data/products'
 import { formatPrice, products } from '@/data/products'
+import { getPromo } from '@/lib/promo'
 
-// Una línea del carrito: la prenda, la talla elegida y la cantidad.
-type CartLine = { product: Product; size: string; quantity: number }
+type CartLine = {
+  product: Product
+  size: string
+  quantity: number
+}
 
 const WHATSAPP_NUMBER = '573114769412'
 
-// Arma el enlace de WhatsApp con el resumen completo del pedido.
+// Genera el mensaje completo del pedido con los descuentos aplicados.
 export function buildWhatsAppOrderUrl(lines: CartLine[]) {
   const items = lines.map(({ product: saved, size, quantity }, index) => {
-    // El carrito se guarda en el navegador del cliente, así que se busca la versión
-    // actual de la prenda por si se guardó con datos antiguos (sin gramaje, etc.).
+    // Recupera la información actualizada del producto.
     const product = products.find((p) => p.id === saved.id) ?? saved
-    // El precio es el que el cliente vio en su bolsa.
+
     const price = saved.price
+    const lineSubtotal = price * quantity
 
     return [
       `*${index + 1}. ${product.name}* (${product.collection === 'men' ? 'Hombre' : 'Mujer'})`,
@@ -23,25 +28,65 @@ export function buildWhatsAppOrderUrl(lines: CartLine[]) {
       `Talla: ${size}`,
       `Cantidad: ${quantity}`,
       `Precio unitario: ${formatPrice(price)}`,
-      `Subtotal: ${formatPrice(price * quantity)}`,
+      `Subtotal: ${formatPrice(lineSubtotal)}`,
     ]
       .filter(Boolean)
       .join('\n')
   })
 
-  const totalUnits = lines.reduce((sum, line) => sum + line.quantity, 0)
-  const totalPrice = lines.reduce((sum, line) => sum + line.product.price * line.quantity, 0)
+  const totalUnits = lines.reduce(
+    (sum, line) => sum + line.quantity,
+    0
+  )
+
+  const subtotal = lines.reduce(
+    (sum, line) => sum + line.product.price * line.quantity,
+    0
+  )
+
+  // Se utiliza exactamente el mismo cálculo de promociones del carrito.
+  const promo = getPromo(totalUnits, subtotal)
+
+  const isBlackFriday = promo.source === 'black-friday'
+
+  const shipping = promo.freeShippingBogota
+    ? 'GRATIS para pedidos en Bogotá. Otras ciudades se cotizan por separado.'
+    : 'Se calcula según la ciudad de destino.'
 
   const message = [
-    'Hola MANTOS , Quiero hacer este pedido:',
+    isBlackFriday
+      ? 'Hola MANTOS 👋 Quiero hacer este pedido (Black Friday 🖤):'
+      : 'Hola MANTOS 👋 Quiero hacer este pedido:',
+
+    '',
+    '*DETALLE DEL PEDIDO*',
     '',
     items.join('\n\n'),
+
+    '',
+    '--------------------------',
+    '*RESUMEN DE COMPRA*',
     '',
     `Total de prendas: ${totalUnits}`,
-    `*Total a pagar: ${formatPrice(totalPrice)}*`,
+    `Subtotal: ${formatPrice(subtotal)}`,
+
+    promo.discount > 0
+      ? `Descuento ${promo.label} (${promo.percent}%): -${formatPrice(promo.discount)}`
+      : null,
+
+    `*TOTAL DE PRENDAS: ${formatPrice(promo.total)}*`,
+    '',
+    promo.freeShippingBogota
+      ? '✓ *ENVÍO GRATIS EN BOGOTÁ*'
+      : 'Envío: pendiente de cotización según ciudad.',
+
+    '',
+    '📍 Ciudad de envío:',
     '',
     '¿Me confirman disponibilidad y forma de pago?',
-  ].join('\n')
+  ]
+    .filter((line) => line !== null)
+    .join('\n')
 
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
 }

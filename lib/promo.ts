@@ -53,7 +53,7 @@ export const REGULAR_OFFER = {
 //    productos, la caja negra de cada prenda y estas ofertas especiales.
 // ---------------------------------------------------------------------------
 export const BLACK_FRIDAY = {
-  mode: 'on' as 'auto' | 'on' | 'off',
+  mode: 'auto' as 'auto' | 'on' | 'off',
 
   // Hora de Colombia (-05:00). Solo el viernes 27 de noviembre de 2026.
   startsAt: '2026-11-27T00:00:00-05:00',
